@@ -1,0 +1,47 @@
+{
+  "name": "discretize-svg-path",
+  "version": "1.0.0",
+  "description": "Library for converting svg path to array of points",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "webpack --config webpack.config.js",
+    "pretest": "npm run build",
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studio-marweb/discretize-svg-path.git"
+  },
+  "keywords": [
+    "SVG",
+    "path",
+    "discretize",
+    "points"
+  ],
+  "author": "Andrii Lysyi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/studio-marweb/discretize-svg-path/issues"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "homepage": "https://github.com/studio-marweb/discretize-svg-path#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "node-resemble-js": "^0.2.0",
+    "promise": "^8.0.1",
+    "rimraf": "^2.6.2",
+    "svg2png": "^4.1.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
+  },
+  "dependencies": {
+    "svg-arc-to-cubic-bezier": "^3.0.0",
+    "svg-path-parser": "^1.1.0"
+  }
+}
