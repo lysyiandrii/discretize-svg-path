@@ -1,2 +1,7 @@
 node_modules
 .idea
+test/test-results/png/compared/*
+test/test-results/png/discretized/*
+test/test-results/png/original/*
+test/test-results/svg/discretized/*
+test/test-results/svg/original/*

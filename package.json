@@ -1,8 +1,8 @@
 {
   "name": "discretize-svg-path",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Library for converting svg path to array of points",
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "webpack --config webpack.config.js",

@@ -6,6 +6,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'umd',
+        libraryExport: 'default',
         globalObject: 'this'
     },
     module: {
