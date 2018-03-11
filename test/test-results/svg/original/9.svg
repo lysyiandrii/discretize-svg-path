@@ -2,6 +2,6 @@
             <path
                 fill="none"
                 stroke="#000000"
-                d="M10 80 Q 52.5 10, 95 80 T 180 80">
+                d="M20,20 H30 V40">
             </path>
         </svg>
