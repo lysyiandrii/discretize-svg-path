@@ -1,7 +1,7 @@
-import {parseSVG, makeAbsolute} from 'svg-path-parser';
-import arcToBezier from 'svg-arc-to-cubic-bezier';
-import Point from './point';
-import {discretizeCubicBezier, discretizeQuadraticBezier} from './bezier';
+const {parseSVG, makeAbsolute} = require('svg-path-parser');
+const arcToBezier = require('svg-arc-to-cubic-bezier/dist/svg-points-to-cubic-bezier');
+const Point = require('./point');
+const {discretizeCubicBezier, discretizeQuadraticBezier} = require('./bezier');
 
 function splitToCommands(path) {
     const commands = parseSVG(path);
@@ -83,11 +83,11 @@ function discretizeCommand(command, prevCommand) {
 
 function discretizePath(path) {
     const commands = splitToCommands(path);
-    return splitToCommands(path)
+    return commands
         .reduce((points, command, index) => {
             return points.concat(discretizeCommand(command, commands[index - 1]));
         }, [])
         .map((p) => p.toArray());
 }
 
-export default discretizePath;
+module.exports = discretizePath;

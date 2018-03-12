@@ -3,10 +3,16 @@ const rimraf = require('rimraf');
 const svg2png = require('svg2png');
 const resemblejs = require('node-resemble-js');
 const paths = require('./test-data').paths;
-const discretizePath = require('../dist/bundle');
 const Promise = require('promise');
+const args = process.argv.slice(2);
 
-console.log(discretizePath);gi
+let discretizePath;
+if (args[0] === '--debug') {
+    discretizePath = require('../src/index');
+} else {
+    discretizePath = require('../dist/bundle');
+}
+
 function cleanTextResults(directory) {
     return new Promise((resolve, reject) => {
         rimraf(`test/test-results/${directory}/*.*`, (err) => {

@@ -1,5 +1,4 @@
-import Point from './point';
-import {distance, middlePoint} from './utils';
+const {distance, middlePoint} = require('./utils');
 
 const FLATNESS_FACTOR = 1.001;
 
@@ -13,7 +12,7 @@ function isQuadraticBezierFlat(p0, p1, p2) {
 
 function discretizeCubicBezier(p0, p1, p2, p3) {
     if (isCubicBezierFlat(p0, p1, p2, p3)) {
-        return [new Point(p0.x, p0.y), new Point(p3.x, p3.y)];
+        return p3;
     }
 
     let points = [];
@@ -33,7 +32,7 @@ function discretizeCubicBezier(p0, p1, p2, p3) {
 
 function discretizeQuadraticBezier(p0, p1, p2) {
     if (isQuadraticBezierFlat(p0, p1, p2)) {
-        return [new Point(p0.x, p0.y), new Point(p2.x, p2.y)];
+        return p2;
     }
 
     let points = [];
@@ -47,7 +46,7 @@ function discretizeQuadraticBezier(p0, p1, p2) {
     return points;
 }
 
-export {
+module.exports = {
     discretizeCubicBezier,
     discretizeQuadraticBezier
 };
