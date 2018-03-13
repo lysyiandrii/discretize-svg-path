@@ -15,7 +15,6 @@ function discretizeCommand(command, prevCommand) {
         case 'L':
         case 'H':
         case 'V':
-        case 'Z':
             return [new Point(command.x, command.y)];
         case 'C':
             return discretizeCubicBezier(
@@ -56,7 +55,7 @@ function discretizeCommand(command, prevCommand) {
 
             return [new Point(command.x, command.y)];
         case 'A':
-            return arcToBezier({
+            const p= arcToBezier({
                 px: command.x0,
                 py: command.y0,
                 cx: command.x,
@@ -75,6 +74,9 @@ function discretizeCommand(command, prevCommand) {
                     new Point(curve.x, curve.y)
                 ));
             }, [new Point(command.x0, command.y0)]);
+            return p;
+        case 'Z':
+            return [];
         default:
             console.log(`Discretize SVG Path: Unsupported command ${command.code}`);
             return [];
@@ -83,11 +85,27 @@ function discretizeCommand(command, prevCommand) {
 
 function discretizePath(path) {
     const commands = splitToCommands(path);
-    return commands
-        .reduce((points, command, index) => {
-            return points.concat(discretizeCommand(command, commands[index - 1]));
-        }, [])
-        .map((p) => p.toArray());
+    let discretized = [];
+    let i;
+
+    for (i = 0; i < commands.length; i++) {
+        discretized = discretized.concat(discretizeCommand(commands[i], commands[i - 1]));
+    }
+
+    const points = [];
+
+    for (i = 0; i < discretized.length; i++) {
+        const curr = discretized[i];
+        const next = discretized[i - 1];
+
+        if (next && curr.isEqual(next)) {
+            continue;
+        }
+
+        points.push(curr.toArray());
+    }
+    console.log(points);
+    return points;
 }
 
 module.exports = discretizePath;

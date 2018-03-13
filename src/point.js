@@ -7,6 +7,10 @@ class Point {
     toArray() {
         return [this.x, this.y];
     }
+
+    isEqual(point) {
+        return this.x === point.x && this.y === point.y
+    }
 }
 
 module.exports = Point;
