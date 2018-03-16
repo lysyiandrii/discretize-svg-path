@@ -60,7 +60,7 @@ function readFile(filePath) {
 
 async function createSVGImageFromPath(imagePath, svgPath) {
     const svg =
-        `<svg width="500" height="500" viewBox="0 0 500 500">
+        `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
             <path
                 fill="none"
                 stroke="#000000"
@@ -73,7 +73,7 @@ async function createSVGImageFromPath(imagePath, svgPath) {
 
 async function createSVGImageFromPoints(imagePath, svgPoints) {
     const svg =
-        `<svg width="500" height="500" viewBox="0 0 500 500">
+        `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
             <polyline
                 fill="none"
                 stroke="#000000"
@@ -97,7 +97,7 @@ async function compareImages (original, discretized, index) {
         try {
             data.getDiffImage().pack().pipe(fs.createWriteStream(`test/test-results/png/compared/diff-${index}.png`));
 
-            console.log(`Test ${discretized} result ${Number(data.misMatchPercentage) < 0.01} - ${Number(data.misMatchPercentage)}`);
+            console.log(`Test ${discretized} result ${Number(data.misMatchPercentage)}`);
         } catch (e) {
             console.log(e);
         }

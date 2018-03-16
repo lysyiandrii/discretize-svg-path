@@ -104,7 +104,7 @@ function discretizePath(path) {
 
         points.push(curr.toArray());
     }
-    console.log(points);
+
     return points;
 }
 
