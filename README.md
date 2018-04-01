@@ -7,7 +7,7 @@ Library for converting svg path to array of points
 ``` javascript
 var discretizePath = require('discretize-svg-path');
 var path = 'M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80';
-discretizePath(path); // [[10, 80], [10, 80], [21.03515625, 57.03125], ...]
+discretizePath(path); // [[10, 80], [21.03515625, 57.03125], ...]
 ```
 
 ## Installation

@@ -1,6 +1,6 @@
 {
   "name": "discretize-svg-path",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Library for converting svg path to array of points",
   "main": "dist/bundle.js",
   "scripts": {
@@ -40,7 +40,7 @@
     "svg2png": "^4.1.1",
     "svg-arc-to-cubic-bezier": "^3.0.0",
     "svg-path-parser": "^1.1.0",
-    "webpack": "^4.1.1",
+    "webpack": "^4.4.1",
     "webpack-cli": "^2.0.11"
   }
 }
