@@ -6,7 +6,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'umd',
-        library: 'discretizePath',
+        library: 'discretizeSvgPath',
         globalObject: 'this'
     },
     module: {
