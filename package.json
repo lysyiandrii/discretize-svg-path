@@ -1,6 +1,6 @@
 {
   "name": "discretize-svg-path",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Library for converting svg path to array of points",
   "main": "dist/bundle.js",
   "scripts": {
